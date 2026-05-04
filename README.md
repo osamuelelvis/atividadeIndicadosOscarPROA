@@ -1,3 +1,53 @@
+## Nível 1: Primeiros Passos
+Conhecendo a Base de Dados
+
+1.1 Quantos registros existem na coleção de indicados ao Oscar?<br>
+R: 10889 registros
+
+```json
+db.Indicados.countDocuments();
+```
+
+1.2 Quais são as diferentes categorias de premiação que existem no banco de dados? Liste todas as categorias únicas.<br>
+R: 115 registros
+
+```json
+db.oscar_indicados.distinct("categoria");
+```
+
+1.3 Qual foi o primeiro ano de cerimônia do Oscar registrado na base?<br>
+
+R: O primeiro ano registrado na base é de 1928
+
+```json
+{ id_registro: 1}
+```
+
+1.4 Qual foi o último ano de cerimônia registrado na base? <br>
+R: O último ano de cerimônia registrado na base é o de 2024
+
+```json
+{ id_registro: 10889}
+```
+
+1.5 Quantas cerimônias do Oscar estão registradas no total?
+R: Há 96 cerimônias registradas no total
+
+```json
+db.Indicados.distinct("cerimonia")
+```
+
+1.6 Atualize os registros da coleção com os dados do Oscar 2025 e 2026 (pesquise os vencedores e adicione-os).<br>
+R: Está adicionado conforme o arquivo .json no repositório
+
+
+
+
+
+
+
+
+
 ## Nível 3: Atores e Atrizes Famosos
 ### Natalie Portman
 
