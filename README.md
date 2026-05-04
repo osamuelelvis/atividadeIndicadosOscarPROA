@@ -1,3 +1,95 @@
+## Nível 3: Atores e Atrizes Famosos
+### Natalie Portman
+
+**3.1** Quantas vezes Natalie Portman foi indicada ao Oscar?<br>
+R: Ela foi indicada três vezes conforme mostra o registro na base de dados
+```json
+{ nome_do_indicado: { $regex: "Natalie Portman" }}
+```
+
+**3.2** Quantos Oscars Natalie Portman ganhou?<br>
+R: Ela ganhou a estatueta uma vez
+```json
+{ nome_do_indicado: { $regex: "Natalie Portman" }, vencedor: 1}
+```
+
+**3.3** Em quais anos e por quais filmes Natalie Portman foi indicada? <br>
+R: Nos ano de **2005**, **2011** e **2017**, pelos filme **Closer**, **Black Swan** e **Jackie**, respectivamente
+```json
+{nome_do_indicado: { $regex: "Natalie Portman" }}
+```
+
+**3.4** Liste todas as indicações de Natalie Portman mostrando: ano, categoria, filme e se venceu.<br>
+R: R: As indicações de Natalie Portman ao Oscar ocorreram conforme listado abaixo:
+
+- 2005 — Filme: Closer — Categoria: Melhor Atriz Coadjuvante — Vencedor: Não
+- 2011 — Filme: Black Swan — Categoria: Melhor Atriz — Vencedor: Sim
+- 2017 — Filme: Jackie — Categoria: Melhor Atriz — Vencedor: Não
+
+```json
+{nome_do_indicado: { $regex: "Natalie Portman" }}
+```
+---
+### Viola Davis
+
+**3.5** Quantas vezes Viola Davis foi indicada ao Oscar?<br>
+R: Ela foi indicada quatro vezes de acordo com os registros
+```json
+{nome_do_indicado: { $regex: "Viola Davis" }}
+```
+
+**3.6** Quantos Oscars Viola Davis ganhou?<br>
+R: Ela ganhou a estatueta apenas uma vez
+```json
+{nome_do_indicado: { $regex: "Viola Davis" }, vencedor: 1}
+```
+
+**3.7** Por quais filmes Viola Davis foi indicada?<br>
+R: Ela foi indicada pelos filmes: **Doubt (2009)**, **The Help (2012)**, **Fences (2017)** e **Ma Rainey's Black Bottom (2021)**
+```json
+{nome_do_indicado: { $regex: "Viola Davis" }}
+```
+
+---
+### Amy Adams
+
+**3.8** Amy Adams já ganhou algum Oscar?<br>
+R: Infelizmente, não
+```json
+{nome_do_indicado: { $regex: "Amy Adams" }, vencedor: 1}
+```
+
+**3.9** Quantas vezes Amy Adams foi indicada sem ganhar?<br>
+R: Ela foi indicada 6 vezes, sem ganhar
+```json
+{nome_do_indicado: { $regex: "Amy Adams" }}
+```
+
+---
+### Denzel Washington
+
+**3.10** Denzel Washington já ganhou algum Oscar?<br>
+R: Sim, duas vezes
+```json
+{nome_do_indicado: { $regex: "Denzel Washington"}, vencedor: 1}
+```
+
+**3.11** Quantas vezes Denzel Washington foi indicado ao Oscar?<br>
+R: Ele foi indicada 11 vezes ao Oscar
+```json
+{nome_do_indicado: { $regex: "Denzel Washington"}}
+```
+
+**3.12** Liste todos os Oscars que Denzel Washington ganhou (ano, categoria, filme).<br>
+R: 
+- Ano: 1990; Categoria: ACTOR IN A SUPPORTING ROLE; Filme: Glory
+- Ano: 2002; Categoria: ACTOR IN A LEADING ROLE; Filme: Training Day
+
+```json
+{nome_do_indicado: { $regex: "Denzel Washington"}, vencedor: 1}
+```
+
+---
 ## Nível 6: Análise de Filmes
 ### Toy Story
 
