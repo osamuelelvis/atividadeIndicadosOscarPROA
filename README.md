@@ -40,7 +40,97 @@ db.Indicados.distinct("cerimonia")
 1.6 Atualize os registros da coleção com os dados do Oscar 2025 e 2026 (pesquise os vencedores e adicione-os).<br>
 R: Está adicionado conforme o arquivo .json no repositório
 
+## Nível 2: Explorando Categorias
 
+**2.1** Quantas indicações existem para cada categoria? Agrupe por categoria e ordene da mais frequente para a menos frequente.<br>
+```json
+db.Indicados.aggregate([
+  {
+    $group: {
+      _id: "$categoria",
+      total_indicacoes: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { total_indicacoes: -1 }
+  }
+])
+```
+
+**2.2** Qual categoria teve mais indicações ao longo da história do Oscar?<br>
+R: A categoria "DIRECTING", tendo 469 indicações no total.
+
+```json
+db.Indicados.aggregate([
+  {
+    $group: {
+      _id: "$categoria",
+      total_indicacoes: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { total_indicacoes: -1 }
+  }
+])
+```
+
+**2.3** Qual categoria teve menos indicações ao longo da história?<br>
+R: Ao longo da história, as categorias **SPECIAL ACHIEVEMENT AWARD (Sound Effects)**, **Best Animated Feature Film**, **AWARD OF COMMENDATION**, **Best International Feature Film**, **SPECIAL ACHIEVEMENT AWARD (Sound Editing)** e **GORDON E. SAWYER AWARD** obtiveram apenas uma indicações em toda sua história.
+
+```json
+db.Indicados.aggregate([
+  {
+    $group: {
+      _id: "$categoria",
+      total_indicacoes: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { total_indicacoes: +1 }
+  }
+])
+```
+
+**2.4** A partir de que ano a categoria "ACTRESS" deixou de existir? (Dica: procure a última cerimônia com essa categoria)<br>
+R: A partir do ano de 1976, onde dali em diante, essa categoria deixou de existir.
+
+```json
+db.Indicados.find({	
+  ano_cerimonia: 1976,
+  categoria: "ACTRESS"
+})
+```
+
+**2.5** Quais categorias existiam na primeira cerimônia (1928) e não existem mais hoje?<br>
+R: Categorias como **ENGINEERING EFFECTS**, **UNIQUE AND ARTISTIC PICTURES** e **SPECIAL AWARD** já não existem mais nos dias de hoje.
+
+```json
+[
+  'ACTOR',
+  'ACTRESS',
+  'ART DIRECTION',
+  'CINEMATOGRAPHY',
+  'DIRECTING (Comedy Picture)',
+  'DIRECTING (Dramatic Picture)',
+  'ENGINEERING EFFECTS',
+  'OUTSTANDING PICTURE',
+  'SPECIAL AWARD',
+  'UNIQUE AND ARTISTIC PICTURE',
+  'WRITING (Adaptation)',
+  'WRITING (Original Story)',
+  'WRITING (Title Writing)'
+],
+[
+  'Best Actor in a Leading Role',
+  'Best Actor in a Supporting Role',
+  'Best Actress in a Leading Role',
+  'Best Actress in a Supporting Role',
+  'Best Director',
+  'Best Picture'
+]
+```
+
+**2.6** Liste todas as categorias que contêm a palavra "DIRECTING" no nome.
 
 
 
