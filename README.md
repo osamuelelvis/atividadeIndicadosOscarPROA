@@ -130,13 +130,14 @@ R: Categorias como **ENGINEERING EFFECTS**, **UNIQUE AND ARTISTIC PICTURES** e *
 ]
 ```
 
-**2.6** Liste todas as categorias que contêm a palavra "DIRECTING" no nome.
+**2.6** Liste todas as categorias que contêm a palavra "DIRECTING" no nome.<br>
+R: Além da categoria **DIRECTING**, outras categorias são elas: **DIRECTING (Comedy Picture)**, **DIRECTING (Dramatic Picture)**
 
-
-
-
-
-
+```json
+db.Indicados.find({
+  categoria: { $regex: "DIRECTING" }
+})
+```
 
 ## Nível 3: Atores e Atrizes Famosos
 ### Natalie Portman
